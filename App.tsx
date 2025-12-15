@@ -50,7 +50,7 @@ const App: React.FC = () => {
                   <a href="#" className="hover:text-primary transition-colors">Facebook</a>
                 </div>
                 
-                <p className="text-sm text-gray-400">© 2023 Surprez Inc. All rights reserved.</p>
+                <p className="text-sm text-gray-400">© 2025 Surprez Inc. All rights reserved.</p>
               </div>
             </div>
           </footer>
