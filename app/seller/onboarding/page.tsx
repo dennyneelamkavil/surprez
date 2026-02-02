@@ -1,102 +1,97 @@
-'use client'
+"use client";
 
-import React from "react"
+import React from "react";
 
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
-import RegistrationHeader from '@/components/registration-header'
-import ProgressIndicator from '@/components/progress-indicator'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
+} from "@/components/ui/select";
 
-export default function RegisterStep2Page() {
-  const router = useRouter()
+export default function OnboardingPage() {
+  const router = useRouter();
   const [businessType, setBusinessType] = useState<
-    'individual' | 'small-shop' | 'brand'
-  >('individual')
+    "individual" | "small-shop" | "brand"
+  >("individual");
 
   const [formData, setFormData] = useState({
-    businessName: '',
-    displayName: '',
-    primaryCategory: '',
-    addressLine: '',
-    pincode: '',
-    city: '',
-    state: '',
-    gstNumber: '',
-  })
+    businessName: "",
+    displayName: "",
+    primaryCategory: "",
+    addressLine: "",
+    pincode: "",
+    city: "",
+    state: "",
+    gstNumber: "",
+  });
 
   const categories = [
-    'Toys & Kids Products',
-    'Handmade & Crafted',
-    'Personalized Crafts',
-    'Toys & Kids Products',
-    'Home & Desk Decor',
-    'Party Gifts',
-    'Photo Frames',
-    'Perfumes',
-  ]
+    "Toys & Kids Products",
+    "Handmade & Crafted",
+    "Personalized Crafts",
+    "Toys & Kids Products",
+    "Home & Desk Decor",
+    "Party Gifts",
+    "Photo Frames",
+    "Perfumes",
+  ];
 
   const states = [
-    'Andhra Pradesh',
-    'Arunachal Pradesh',
-    'Assam',
-    'Bihar',
-    'Chhattisgarh',
-    'Goa',
-    'Gujarat',
-    'Haryana',
-    'Himachal Pradesh',
-    'Jharkhand',
-    'Karnataka',
-    'Kerala',
-    'Madhya Pradesh',
-    'Maharashtra',
-    'Manipur',
-    'Meghalaya',
-    'Mizoram',
-    'Nagaland',
-    'Odisha',
-    'Punjab',
-    'Rajasthan',
-    'Sikkim',
-    'Tamil Nadu',
-    'Telangana',
-    'Tripura',
-    'Uttar Pradesh',
-    'Uttarakhand',
-    'West Bengal',
-  ]
+    "Andhra Pradesh",
+    "Arunachal Pradesh",
+    "Assam",
+    "Bihar",
+    "Chhattisgarh",
+    "Goa",
+    "Gujarat",
+    "Haryana",
+    "Himachal Pradesh",
+    "Jharkhand",
+    "Karnataka",
+    "Kerala",
+    "Madhya Pradesh",
+    "Maharashtra",
+    "Manipur",
+    "Meghalaya",
+    "Mizoram",
+    "Nagaland",
+    "Odisha",
+    "Punjab",
+    "Rajasthan",
+    "Sikkim",
+    "Tamil Nadu",
+    "Telangana",
+    "Tripura",
+    "Uttar Pradesh",
+    "Uttarakhand",
+    "West Bengal",
+  ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSelectChange = (name: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleBack = () => {
-    router.back()
-  }
+    router.back();
+  };
 
   const handleContinue = () => {
-    router.push('/dashboard')
-  }
+    router.push("/dashboard");
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      <RegistrationHeader />
-      <ProgressIndicator step={2} />
-
       <main className="flex-1 px-4 md:px-8 py-8 md:py-12">
         <div className="max-w-2xl mx-auto">
           {/* Form Card */}
@@ -118,22 +113,22 @@ export default function RegisterStep2Page() {
                 </h2>
                 <div className="flex flex-wrap gap-3">
                   {[
-                    { id: 'individual', label: 'Individual' },
-                    { id: 'small-shop', label: 'Small Shop' },
-                    { id: 'brand', label: 'Brand' },
+                    { id: "individual", label: "Individual" },
+                    { id: "small-shop", label: "Small Shop" },
+                    { id: "brand", label: "Brand" },
                   ].map((type) => (
                     <button
                       key={type.id}
                       type="button"
                       onClick={() =>
                         setBusinessType(
-                          type.id as 'individual' | 'small-shop' | 'brand'
+                          type.id as "individual" | "small-shop" | "brand",
                         )
                       }
                       className={`px-4 py-2 rounded-lg border-2 font-medium transition-all ${
                         businessType === type.id
-                          ? 'border-primary bg-primary/10 text-primary'
-                          : 'border-gray-300 text-foreground hover:border-primary'
+                          ? "border-primary bg-primary/10 text-primary"
+                          : "border-gray-300 text-foreground hover:border-primary"
                       }`}
                     >
                       {type.label}
@@ -172,7 +167,7 @@ export default function RegisterStep2Page() {
                   {/* Display Name */}
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
-                      Display Name{' '}
+                      Display Name{" "}
                       <span className="text-gray-400 font-normal">
                         (Optional)
                       </span>
@@ -195,7 +190,7 @@ export default function RegisterStep2Page() {
                     <Select
                       value={formData.primaryCategory}
                       onValueChange={(value) =>
-                        handleSelectChange('primaryCategory', value)
+                        handleSelectChange("primaryCategory", value)
                       }
                     >
                       <SelectTrigger className="w-full bg-muted border-0">
@@ -273,7 +268,7 @@ export default function RegisterStep2Page() {
                     <Select
                       value={formData.state}
                       onValueChange={(value) =>
-                        handleSelectChange('state', value)
+                        handleSelectChange("state", value)
                       }
                     >
                       <SelectTrigger className="w-full bg-muted border-0">
@@ -298,7 +293,7 @@ export default function RegisterStep2Page() {
                 </h2>
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    GST Number{' '}
+                    GST Number{" "}
                     <span className="text-gray-400 font-normal">
                       (Optional)
                     </span>
@@ -340,5 +335,5 @@ export default function RegisterStep2Page() {
         </div>
       </main>
     </div>
-  )
+  );
 }

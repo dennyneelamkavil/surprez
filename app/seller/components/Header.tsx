@@ -1,7 +1,7 @@
-import React from "react"
-import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import { ChevronDown } from 'lucide-react'
+import React from "react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ChevronDown } from "lucide-react";
 
 export default function Header() {
   return (
@@ -38,15 +38,15 @@ export default function Header() {
         </div>
       </div>
     </header>
-  )
+  );
 }
 
 function NavLink({
   href,
   children,
 }: {
-  href: string
-  children: React.ReactNode
+  href: string;
+  children: React.ReactNode;
 }) {
   return (
     <a
@@ -56,5 +56,5 @@ function NavLink({
       {children}
       <ChevronDown className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
     </a>
-  )
+  );
 }

@@ -1,6 +1,8 @@
 import React from "react";
 import type { Metadata } from "next";
 
+import { LayoutSwitcher } from "./components";
+
 export const metadata: Metadata = {
   title: "Surprez - Start Selling Handmade Gifts",
   description:
@@ -15,14 +17,18 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
 };
 
-export default function RootLayout({
+export default function SellerLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
-      <body className={`font-sans antialiased`}>{children}</body>
+      <body>
+        <div className="min-h-screen flex flex-col bg-[#FBFBF9]">
+          <LayoutSwitcher>{children}</LayoutSwitcher>
+        </div>
+      </body>
     </html>
   );
 }

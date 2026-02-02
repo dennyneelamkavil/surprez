@@ -1,9 +1,9 @@
-import Link from 'next/link'
-import { Facebook, Instagram, Twitter, Linkedin } from 'lucide-react'
+import Link from "next/link";
+import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-foreground text-background">
+    <footer className="bg-[#F3F4FB] text-sm text-gray-600">
       <div className="max-w-7xl mx-auto px-4 py-12">
         {/* Main footer content */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
@@ -11,7 +11,8 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-bold mb-4">Surprez</h3>
             <p className="text-sm opacity-90 mb-4">
-              A Curated Marketplace for Handcrafted and Meaningful Gifts Join Our Community Of Talented Makers.
+              A Curated Marketplace for Handcrafted and Meaningful Gifts Join
+              Our Community Of Talented Makers.
             </p>
             <div className="space-y-2 text-sm opacity-80">
               <p>© 2025 Surprez Inc.</p>
@@ -152,9 +153,12 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="text-center text-xs opacity-75 pt-4 border-t border-background/20">
-          <p>© 2025 Surprez Inc. All Rights Reserved. Hand-Crafted With Love For Creators Everywhere</p>
+          <p>
+            © 2025 Surprez Inc. All Rights Reserved. Hand-Crafted With Love For
+            Creators Everywhere
+          </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }

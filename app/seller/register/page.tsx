@@ -1,39 +1,34 @@
-'use client'
+"use client";
 
-import React from "react"
+import React from "react";
 
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
-import RegistrationHeader from '@/components/registration-header'
-import ProgressIndicator from '@/components/progress-indicator'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Eye, EyeOff } from 'lucide-react'
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Eye, EyeOff } from "lucide-react";
 
 export default function RegisterPage() {
-  const router = useRouter()
-  const [showPassword, setShowPassword] = useState(false)
+  const router = useRouter();
+  const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    mobileNumber: '',
-    password: '',
-  })
+    fullName: "",
+    email: "",
+    mobileNumber: "",
+    password: "",
+  });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleContinue = () => {
-    router.push('/register/step-2')
-  }
+    router.push("/onboarding");
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      <RegistrationHeader />
-      <ProgressIndicator step={1} />
-
       <main className="flex-1 px-4 md:px-8 py-8 md:py-12">
         <div className="max-w-2xl mx-auto relative">
           {/* Decorative confetti background */}
@@ -119,7 +114,7 @@ export default function RegisterPage() {
                 </label>
                 <div className="relative">
                   <Input
-                    type={showPassword ? 'text' : 'password'}
+                    type={showPassword ? "text" : "password"}
                     name="password"
                     placeholder="Create a strong password"
                     value={formData.password}
@@ -131,11 +126,7 @@ export default function RegisterPage() {
                     onClick={() => setShowPassword(!showPassword)}
                     className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
                   >
-                    {showPassword ? (
-                      <EyeOff size={20} />
-                    ) : (
-                      <Eye size={20} />
-                    )}
+                    {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                   </button>
                 </div>
                 <p className="text-xs text-gray-500 mt-1">
@@ -155,8 +146,11 @@ export default function RegisterPage() {
 
             {/* Sign In Link */}
             <p className="text-center text-gray-600 mt-6">
-              Already registered?{' '}
-              <a href="#" className="text-primary font-semibold hover:underline">
+              Already registered?{" "}
+              <a
+                href="#"
+                className="text-primary font-semibold hover:underline"
+              >
                 Sign in
               </a>
             </p>
@@ -164,5 +158,5 @@ export default function RegisterPage() {
         </div>
       </main>
     </div>
-  )
+  );
 }
