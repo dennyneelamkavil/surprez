@@ -1,9 +1,14 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 import { ChevronDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function Header() {
+  const router = useRouter();
+
   return (
     <header className="w-full bg-white border-b border-border sticky top-0 z-50">
       {/* Top bar */}
@@ -29,10 +34,17 @@ export default function Header() {
 
         {/* Right side buttons */}
         <div className="flex items-center gap-3">
-          <Button variant="ghost" className="text-foreground">
+          <Button
+            onClick={() => router.push("/seller/login")}
+            variant="ghost"
+            className="text-foreground"
+          >
             Login
           </Button>
-          <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+          <Button
+            onClick={() => router.push("/seller/register")}
+            className="bg-primary hover:bg-primary/90 text-primary-foreground"
+          >
             Start Selling →
           </Button>
         </div>
