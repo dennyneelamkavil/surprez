@@ -1,6 +1,6 @@
 export default function MinimalHeader() {
   return (
-    <header className="h-16 bg-[#7AC143]">
+    <header className="h-16 bg-primary">
       <div className="mx-auto max-w-[1200px] h-full px-6 flex items-center justify-between">
         {/* Logo */}
         <div className="text-white font-bold text-xl tracking-tight">
