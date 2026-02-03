@@ -23,7 +23,7 @@ export default function SellerLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="min-h-screen flex flex-col bg-[#FBFBF9]">
+    <div className="min-h-screen flex flex-col bg-[#FEFCFB]">
       <LayoutSwitcher>{children}</LayoutSwitcher>
     </div>
   );
