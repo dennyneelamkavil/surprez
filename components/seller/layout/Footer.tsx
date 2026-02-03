@@ -68,7 +68,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="space-y-4 pr-4">
             <Image
-              src="/logo.png"
+              src="/logos/logo.png"
               alt="Surprez"
               width={110}
               height={45}

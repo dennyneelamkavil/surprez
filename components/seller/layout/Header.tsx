@@ -36,7 +36,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src="/logo_white.svg"
+              src="/logos/logo_white.svg"
               alt="Surprez"
               width={120}
               height={32}
