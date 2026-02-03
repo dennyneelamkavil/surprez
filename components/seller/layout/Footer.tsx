@@ -8,7 +8,7 @@ function FooterLink({ children }: { children: React.ReactNode }) {
   return (
     <Link
       href="#"
-      className="text-[13px] text-gray-600 hover:text-[#6C5CE7] transition-colors"
+      className="text-[16px] text-[#8A8A8A] hover:text-secondary font-medium transition-colors"
     >
       {children}
     </Link>
@@ -43,7 +43,7 @@ function SocialIcon({
 
 function SectionHeader({ children }: { children: React.ReactNode }) {
   return (
-    <h4 className="mb-3 text-[12px] font-bold uppercase tracking-wider text-gray-900">
+    <h4 className="mb-3 text-[20px] leading-6 font-bold uppercase tracking-wider text-black">
       {children}
     </h4>
   );
@@ -51,7 +51,7 @@ function SectionHeader({ children }: { children: React.ReactNode }) {
 
 function MiddleSectionHeader({ children }: { children: React.ReactNode }) {
   return (
-    <h4 className="mb-2 text-[12px] font-bold uppercase tracking-wider text-[#7B61FF]">
+    <h4 className="mb-2 text-[16px] font-semibold uppercase tracking-wider text-[#8777CA]">
       {children}
     </h4>
   );
@@ -74,7 +74,7 @@ export default function Footer() {
               height={45}
               className="object-contain"
             />
-            <p className="text-[13px] leading-relaxed text-gray-600">
+            <p className="text-[16px] leading-6 text-[#4D4D4D] font-medium">
               A Curated Marketplace For Handcrafted And Meaningful Gifts. Join
               Our Community Of Talented Makers.
             </p>
@@ -146,7 +146,7 @@ export default function Footer() {
                 <Mail className="w-4 h-4 text-primary" />
                 <Link
                   href="mailto:sellers@surprez.com"
-                  className="text-gray-500 underline decoration-gray-300 underline-offset-2"
+                  className="text-[#8A8A8A] text-[16px] font-medium underline decoration-gray-300 underline-offset-2"
                 >
                   sellers@surprez.com
                 </Link>
@@ -154,7 +154,10 @@ export default function Footer() {
               <li className="flex items-center gap-2">
                 {/* Lime green icon style matching image */}
                 <Phone className="w-4 h-4 text-primary" />
-                <Link href="tel:+919876541230" className="text-gray-500">
+                <Link
+                  href="tel:+919876541230"
+                  className="text-[#8A8A8A] text-[16px] font-medium underline decoration-gray-300 underline-offset-2"
+                >
                   +91 9876541230
                 </Link>
               </li>
@@ -169,28 +172,19 @@ export default function Footer() {
             <div className="flex flex-wrap gap-12">
               <div className="flex flex-col">
                 <MiddleSectionHeader>Legal</MiddleSectionHeader>
-                <Link
-                  href="#"
-                  className="text-[13px] text-gray-800 font-medium"
-                >
+                <Link href="#" className="text-[16px] text-black font-medium">
                   Terms of Use
                 </Link>
               </div>
               <div className="flex flex-col">
                 <MiddleSectionHeader>Privacy</MiddleSectionHeader>
-                <Link
-                  href="#"
-                  className="text-[13px] text-gray-800 font-medium"
-                >
+                <Link href="#" className="text-[16px] text-black font-medium">
                   Data Protection
                 </Link>
               </div>
               <div className="flex flex-col">
                 <MiddleSectionHeader>Cookies</MiddleSectionHeader>
-                <Link
-                  href="#"
-                  className="text-[13px] text-gray-800 font-medium"
-                >
+                <Link href="#" className="text-[16px] text-black font-medium">
                   Cookie Settings
                 </Link>
               </div>
@@ -226,7 +220,7 @@ export default function Footer() {
         </div>
 
         {/* ================= COPYRIGHT ================= */}
-        <div className="border-t border-gray-200 pt-6 text-center text-[12px] text-gray-400">
+        <div className="border-t border-gray-200 pt-6 text-center text-[18px] text-[#898989] font-medium">
           © 2026 Surprez Inc. All Rights Reserved. Hand-Crafted With Love For
           Creators Everywhere.
         </div>
