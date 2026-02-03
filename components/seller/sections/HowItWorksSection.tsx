@@ -2,36 +2,41 @@
 
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { User, Package, CheckCircle, Zap } from "lucide-react";
+import { UserPlus, Box, ClipboardCheck, Rocket } from "lucide-react";
+import Image from "next/image";
 
 const steps = [
   {
     number: "01",
-    icon: User,
+    icon: UserPlus,
     title: "Register Your Business",
     description:
-      "Set up your seller account with basic information about your craft",
+      "Sign up with your business details and get verified within 24 hours.",
+    image: "/seller/register.png", // Handshake/Meeting
   },
   {
     number: "02",
-    icon: Package,
+    icon: Box,
     title: "List Your Products",
     description:
-      "Upload stunning photos and details about your handmade gift items",
+      "Add your gift items with photos, descriptions, and pricing in minutes.",
+    image: "/seller/list-products.png", // Boxes/Inventory
   },
   {
     number: "03",
-    icon: CheckCircle,
+    icon: ClipboardCheck,
     title: "Get Approved",
     description:
-      "Our team reviews your products to ensure quality standards are met",
+      "Our team reviews your listings to ensure quality standards are met.",
+    image: "/seller/approved.png", // Checking/Approval
   },
   {
     number: "04",
-    icon: Zap,
+    icon: Rocket,
     title: "Start Selling",
     description:
-      "Go live and begin receiving orders from gift-buyers worldwide",
+      "Go live and reach thousands of customers looking for the perfect gift.",
+    image: "/seller/start-selling.png", // Laptop/Selling
   },
 ];
 
@@ -39,56 +44,66 @@ export default function HowItWorksSection() {
   const router = useRouter();
 
   return (
-    <section id="how-it-works" className="w-full bg-background py-16 md:py-24">
-      <div className="max-w-7xl mx-auto px-4">
+    <section id="how-it-works" className="w-full bg-[#FBF8F6] py-16 md:py-24">
+      <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <p className="text-sm font-semibold text-primary tracking-wide mb-2">
+        <div className="text-center mb-16">
+          <p className="text-[16px] font-semibold text-primary uppercase tracking-wider mb-3">
             HOW IT WORKS
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-[36px] md:text-4xl font-extrabold text-black mb-4 relative z-10">
             Start selling in 4 simple steps
           </h2>
-          <p className="text-foreground/60">
-            Getting started on Surprez is easy, quick, and straightforward
+          <p className="text-[#9C9C9C] text-[16px] font-semibold max-w-lg mx-auto">
+            Getting started is quick and easy. We'll guide you through every
+            step.
           </p>
         </div>
 
         {/* Steps Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
               <div
                 key={index}
-                className="relative bg-gradient-to-br from-foreground/5 to-foreground/10 rounded-2xl p-6 overflow-hidden group hover:shadow-lg transition-shadow"
+                className="group relative h-[320px] rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
               >
-                {/* Step background placeholder */}
-                <div
-                  className="absolute inset-0 opacity-5 bg-cover bg-center"
-                  style={{
-                    backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="50" y="50" fontSize="80" fontWeight="bold" textAnchor="middle" dominantBaseline="middle" fill="currentColor">${step.number}</text></svg>')`,
-                  }}
+                {/* Background Image */}
+                <Image
+                  src={step.image}
+                  alt={step.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
 
+                {/* Dark Overlay */}
+                <div className="absolute inset-0 bg-black/60 group-hover:bg-black/70 transition-colors duration-300" />
+
                 {/* Content */}
-                <div className="relative z-10">
-                  <div className="inline-block bg-secondary text-secondary-foreground rounded-full p-3 mb-4">
-                    <Icon className="w-6 h-6" />
+                <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-2 pb-2">
+                  {/* Icon Box */}
+                  <div className="bg-white w-14 h-14 rounded-lg flex items-center justify-center mb-2 shadow-sm border-3 border-primary">
+                    <Icon className="w-7 h-7 text-primary" strokeWidth={2.5} />
                   </div>
 
-                  <div className="flex items-start gap-2 mb-3">
-                    <span className="text-4xl font-bold text-foreground/20">
+                  {/* Text */}
+                  <h3 className="text-white font-extrabold text-[20px] mb-2">
+                    {step.title}
+                  </h3>
+                  <p className="text-[#F6F6F6] text-[14px] font-medium leading-relaxed">
+                    {step.description}
+                  </p>
+
+                  {/* Number (Bottom Right) */}
+                  <div className="absolute bottom-0 right-2">
+                    <span
+                      className="text-[64px] font-extrabold text-transparent select-none"
+                      style={{ WebkitTextStroke: "1px rgba(255,255,255,0.8)" }}
+                    >
                       {step.number}
                     </span>
                   </div>
-
-                  <h3 className="font-bold text-lg text-foreground mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-sm text-foreground/60 leading-relaxed">
-                    {step.description}
-                  </p>
                 </div>
               </div>
             );
@@ -99,9 +114,9 @@ export default function HowItWorksSection() {
         <div className="flex justify-center">
           <Button
             onClick={() => router.push("/seller/register")}
-            className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 rounded-full text-base"
+            className="bg-primary hover:bg-primary/90 text-white font-semibold px-10 py-6 rounded-lg text-[20px] shadow-md transition-transform hover:scale-105"
           >
-            Start Selling Now →
+            Start Selling Now &rarr;
           </Button>
         </div>
       </div>
