@@ -68,8 +68,8 @@ export default function Header() {
       <div className="bg-white">
         <div className="max-w-7xl mx-auto h-14 px-6 flex items-center justify-center">
           <nav className="flex items-center gap-8">
-            <NavLink href="#why">Why Sell?</NavLink>
-            <NavLink href="#how">How It Works</NavLink>
+            <NavLink href="#why-sell">Why Sell?</NavLink>
+            <NavLink href="#how-it-works">How It Works</NavLink>
             <NavLink href="#categories">Categories</NavLink>
             <NavLink href="#stories">Seller Stories</NavLink>
             <NavLink href="#help">Help Center</NavLink>

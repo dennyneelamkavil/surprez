@@ -30,7 +30,7 @@ const features = [
 export default function WhySellSection() {
   return (
     <section
-      id="why"
+      id="why-sell"
       className="w-full bg-white py-16 md:py-24 border-t border-[#D0D0D0]"
     >
       <div className="max-w-7xl mx-auto px-6">
