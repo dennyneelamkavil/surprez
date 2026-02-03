@@ -72,7 +72,7 @@ export default function HeroSection() {
           <div className="flex justify-center items-center relative">
             <div className="relative w-[350px] h-[350px] md:w-[450px] md:h-[450px] lg:w-[500px] lg:h-[500px]">
               <Image
-                src="/seller/hero.png"
+                src="/seller/herosection/hero.png"
                 alt="Seller empowering her craft"
                 fill
                 className="object-contain rounded-full"

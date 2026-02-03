@@ -12,7 +12,7 @@ const steps = [
     title: "Register Your Business",
     description:
       "Sign up with your business details and get verified within 24 hours.",
-    image: "/seller/register.png", // Handshake/Meeting
+    image: "/seller/howitworks/register.png", // Handshake/Meeting
   },
   {
     number: "02",
@@ -20,7 +20,7 @@ const steps = [
     title: "List Your Products",
     description:
       "Add your gift items with photos, descriptions, and pricing in minutes.",
-    image: "/seller/list-products.png", // Boxes/Inventory
+    image: "/seller/howitworks/list-products.png", // Boxes/Inventory
   },
   {
     number: "03",
@@ -28,7 +28,7 @@ const steps = [
     title: "Get Approved",
     description:
       "Our team reviews your listings to ensure quality standards are met.",
-    image: "/seller/approved.png", // Checking/Approval
+    image: "/seller/howitworks/approved.png", // Checking/Approval
   },
   {
     number: "04",
@@ -36,7 +36,7 @@ const steps = [
     title: "Start Selling",
     description:
       "Go live and reach thousands of customers looking for the perfect gift.",
-    image: "/seller/start-selling.png", // Laptop/Selling
+    image: "/seller/howitworks/start-selling.png", // Laptop/Selling
   },
 ];
 
