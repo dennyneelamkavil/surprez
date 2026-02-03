@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 
-import { LayoutSwitcher } from "./components";
+import { LayoutSwitcher } from "@/components/seller/layout";
 
 export const metadata: Metadata = {
   title: "Surprez - Start Selling Handmade Gifts",

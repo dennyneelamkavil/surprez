@@ -1,4 +1,4 @@
-import { ProgressHeader } from "../components";
+import { ProgressHeader } from "@/components/seller/layout";
 
 export default function OnboardingLayout({
   children,

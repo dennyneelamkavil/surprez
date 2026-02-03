@@ -1,8 +1,10 @@
-import HeroSection from "@/components/sections/hero";
-import WhySellSection from "@/components/sections/why-sell";
-import HowItWorksSection from "@/components/sections/how-it-works";
-import ShowcaseSection from "@/components/sections/showcase";
-import StandardsBanner from "@/components/sections/standards-banner";
+import {
+  HeroSection,
+  WhySellSection,
+  HowItWorksSection,
+  ShowcaseSection,
+  StandardsBanner,
+} from "@/components/seller/sections";
 
 export default function Home() {
   return (
