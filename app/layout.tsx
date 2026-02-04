@@ -1,13 +1,6 @@
 import { Metadata } from "next";
-import { Urbanist } from "next/font/google";
 import "./globals.css";
-
-const urbanist = Urbanist({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-urbanist",
-  display: "swap",
-});
+import { urbanist } from "@/lib/fonts";
 
 export const metadata: Metadata = {
   title: "Surprez",

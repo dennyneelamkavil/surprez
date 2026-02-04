@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle2, Play, Headphones, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { montserrat } from "@/lib/fonts";
 
 export default function HeroSection() {
   const router = useRouter();
@@ -22,7 +23,9 @@ export default function HeroSection() {
               <h2 className="text-[48px] sm:text-5xl md:text-6xl font-black text-secondary uppercase tracking-tight leading-none">
                 START SELLING ON
               </h2>
-              <h2 className="text-[96px] sm:text-6xl md:text-7xl font-black text-primary uppercase tracking-tight leading-none">
+              <h2
+                className={`${montserrat.className} text-[96px] sm:text-6xl md:text-7xl font-black text-primary uppercase tracking-tight leading-none`}
+              >
                 SURPREZ
               </h2>
             </div>
