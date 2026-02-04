@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
@@ -28,12 +28,31 @@ function NavLink({
 export default function Header() {
   const router = useRouter();
 
+  const [showNav, setShowNav] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const currentY = window.scrollY;
+
+      if (currentY > lastScrollY && currentY > 80) {
+        setShowNav(false); // scrolling down
+      } else {
+        setShowNav(true); // scrolling up
+      }
+
+      setLastScrollY(currentY);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [lastScrollY]);
+
   return (
-    <header className="w-full sticky top-0 z-50">
-      {/* ================= TOP GREEN BAR ================= */}
-      <div className="bg-primary">
+    <>
+      {/* ================= TOP GREEN BAR (ALWAYS STICKY) ================= */}
+      <div className="sticky top-0 z-50 bg-primary">
         <div className="max-w-7xl mx-auto h-16 px-6 flex items-center justify-between">
-          {/* Logo */}
           <Link href="/seller" className="flex items-center">
             <Image
               src="/logos/logo_white.svg"
@@ -45,7 +64,6 @@ export default function Header() {
             />
           </Link>
 
-          {/* Right actions */}
           <div className="flex items-center gap-5">
             <Button
               onClick={() => router.push("/seller/login")}
@@ -56,16 +74,20 @@ export default function Header() {
 
             <Button
               onClick={() => router.push("/seller/register")}
-              className="bg-white text-primary text-[18px] font-semibold px-4 py-1.5 rounded-full hover:bg-white transition"
+              className="bg-white text-primary text-[18px] font-semibold px-4 py-1.5 rounded-full"
             >
-              Start Selling <ArrowRight className="w-4 h-4 inline-block ml-1" />
+              Start Selling <ArrowRight className="w-4 h-4 ml-1" />
             </Button>
           </div>
         </div>
       </div>
 
-      {/* ================= SECOND WHITE BAR ================= */}
-      <div className="bg-white">
+      {/* ================= WHITE BAR (SCROLL CONTROLLED) ================= */}
+      <div
+        className={`sticky top-16 z-40 bg-white transition-transform duration-300 ease-in-out ${
+          showNav ? "translate-y-0 shadow-sm" : "-translate-y-full shadow-none"
+        }`}
+      >
         <div className="max-w-7xl mx-auto h-14 px-6 flex items-center justify-center">
           <nav className="flex items-center gap-8">
             <NavLink href="#why-sell">Why Sell?</NavLink>
@@ -76,6 +98,6 @@ export default function Header() {
           </nav>
         </div>
       </div>
-    </header>
+    </>
   );
 }
