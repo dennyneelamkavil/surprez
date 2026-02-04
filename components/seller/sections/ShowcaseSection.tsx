@@ -55,7 +55,10 @@ const products: Product[] = [
 
 export default function ShowcaseSection() {
   return (
-    <section id="categories" className="w-full bg-white py-16 md:py-24">
+    <section
+      id="categories"
+      className="w-full bg-white py-16 md:py-24 border-t border-[#D0D0D0]"
+    >
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
