@@ -34,7 +34,7 @@ export default function Header() {
       <div className="bg-primary">
         <div className="max-w-7xl mx-auto h-16 px-6 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href="/seller" className="flex items-center">
             <Image
               src="/logos/logo_white.svg"
               alt="Surprez"

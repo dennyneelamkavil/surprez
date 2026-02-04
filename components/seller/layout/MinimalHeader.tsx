@@ -1,26 +1,42 @@
+"use client";
+
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+
 export default function MinimalHeader() {
   return (
-    <header className="h-16 bg-primary">
-      <div className="mx-auto max-w-[1200px] h-full px-6 flex items-center justify-between">
+    <header className="w-full sticky top-0 z-50 bg-primary border-b border-transparent">
+      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <div className="text-white font-bold text-xl tracking-tight">
-          Surprez
-        </div>
+        <Link
+          href="/seller"
+          className="flex items-center hover:opacity-90 transition-opacity"
+        >
+          <Image
+            src="/logos/logo_white.svg"
+            alt="Surprez"
+            width={100}
+            height={32}
+            className="h-8 w-auto object-contain"
+            priority
+          />
+        </Link>
 
-        {/* Right actions */}
-        <div className="flex items-center gap-6 text-sm text-white">
-          <a href="/help" className="hover:underline">
+        {/* Right Actions */}
+        <div className="flex items-center gap-6 font-semibold text-[16px] text-white">
+          <Link href="/help" className="hover:opacity-80 transition-opacity">
             Help
-          </a>
-          <a href="/support" className="hover:underline">
+          </Link>
+          <Link href="/support" className="hover:opacity-80 transition-opacity">
             Contact Support
-          </a>
-          <a
-            href="/login"
-            className="bg-white text-[#7AC143] px-4 py-1.5 rounded-full font-medium"
-          >
-            Sign In
-          </a>
+          </Link>
+
+          <Link href="/seller/login">
+            <Button className="bg-white hover:bg-white/90 text-primary px-6 h-9 rounded-full shadow-sm transition-colors">
+              Sign In
+            </Button>
+          </Link>
         </div>
       </div>
     </header>
