@@ -10,28 +10,28 @@ export default function HeroSection() {
   const router = useRouter();
 
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32">
+    <section className="w-full pt-8 pb-12 md:pb-24 lg:pb-32">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div className="space-y-8 flex flex-col items-start text-left">
+          <div className="space-y-8 flex flex-col items-start text-left pt-28">
             {/* Headlines */}
             <div className="space-y-1">
-              <h1 className="text-[48px] sm:text-5xl md:text-6xl font-black text-black uppercase tracking-tight leading-none">
+              <h1 className="text-4xl sm:text-5xl md:text-[48px] font-black text-black uppercase tracking-tight leading-none whitespace-normal lg:whitespace-nowrap">
                 EMPOWER YOUR CRAFT.
               </h1>
-              <h2 className="text-[48px] sm:text-5xl md:text-6xl font-black text-secondary uppercase tracking-tight leading-none">
+              <h2 className="text-4xl sm:text-5xl md:text-[48px] font-black text-secondary uppercase tracking-tight leading-none">
                 START SELLING ON
               </h2>
               <h2
-                className={`${montserrat.className} text-[96px] sm:text-6xl md:text-7xl font-black text-primary uppercase tracking-tight leading-none`}
+                className={`${montserrat.className} text-[80px] sm:text-7xl md:text-[96px] font-black text-primary uppercase tracking-tight leading-none`}
               >
                 SURPREZ
               </h2>
             </div>
 
             {/* Subtext */}
-            <p className="text-[#616161] text-[16px] font-medium md:text-lg leading-relaxed max-w-lg">
+            <p className="text-[#616161] text-[14px] font-medium md:text-[16px] leading-relaxed max-w-lg">
               Join thousands of creators reaching gift-seekers worldwide with
               ease and security. Turn your passion into a thriving business,
               grow at your own pace, and share your creativity with people who
@@ -42,20 +42,20 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <Button
                 onClick={() => router.push("/seller/register")}
-                className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-6 text-[20px] rounded-lg shadow-sm transition-transform hover:scale-105"
+                className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-6 text-[18px] md:text-[20px] rounded-lg shadow-sm transition-transform hover:scale-105"
               >
                 Start Selling Now &rarr;
               </Button>
               <Button
                 variant="outline"
-                className="border-primary text-primary hover:bg-primary/10 hover:text-primary font-semibold px-8 py-6 text-[20px] rounded-lg bg-transparent flex items-center gap-2"
+                className="border-primary text-primary hover:bg-primary/10 hover:text-primary font-semibold px-8 py-6 text-[18px] md:text-[20px] rounded-lg bg-transparent flex items-center gap-2"
               >
                 <Play className="w-4 h-4 fill-current" /> How it works
               </Button>
             </div>
 
             {/* Trust Indicators / Features */}
-            <div className="flex flex-col sm:flex-row gap-6 text-[16px] font-medium text-secondary/80 border-t border-[#E3E3E3] pt-6">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 text-[14px] sm:text-[16px] font-medium text-secondary/80 border-t border-[#E3E3E3] pt-6 w-full">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-5 h-5 text-secondary/80 fill-secondary/20" />
                 <span>Free onboarding</span>
@@ -72,8 +72,8 @@ export default function HeroSection() {
           </div>
 
           {/* Right Image */}
-          <div className="flex justify-center items-center relative">
-            <div className="relative w-[350px] h-[350px] md:w-[450px] md:h-[450px] lg:w-[500px] lg:h-[500px]">
+          <div className="flex justify-center lg:justify-end items-center relative">
+            <div className="relative w-[350px] h-[350px] md:w-[500px] md:h-[500px] lg:w-[800px] lg:h-[800px]">
               <Image
                 src="/seller/herosection/hero.png"
                 alt="Seller empowering her craft"

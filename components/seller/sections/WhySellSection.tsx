@@ -1,4 +1,5 @@
 import { Truck, Wallet, ShieldCheck, Target } from "lucide-react";
+import Image from "next/image";
 
 const features = [
   {
@@ -61,8 +62,16 @@ export default function WhySellSection() {
             return (
               <div
                 key={index}
-                className={`bg-secondary rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col items-start gap-6 ${staggerClass}`}
+                className={`relative overflow-hidden bg-secondary rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col items-start gap-6 border-4 border-[#EAE5FF] ${staggerClass}`}
               >
+                <Image
+                  src="/seller/why-sell/why-sell-bg.png"
+                  alt=""
+                  width={512}
+                  height={341}
+                  className="absolute top-[-17px] left-[-50px] w-[512px] h-[341px] scale-[1.6] -rotate-[22.64deg] opacity-[0.04] mix-blend-difference pointer-events-none select-none"
+                />
+
                 {/* Icon Container */}
                 <div className="w-12 h-12 rounded-full bg-white border-2 border-white flex items-center justify-center flex-shrink-0">
                   <Icon className="w-6 h-6 text-black" strokeWidth={1.5} />
