@@ -10,7 +10,7 @@ export default function HeroSection() {
   const router = useRouter();
 
   return (
-    <section className="w-full pt-8 pb-12 md:pb-24 lg:pb-32">
+    <section className="w-full pt-0 pb-12 md:pb-24 lg:pb-32">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
