@@ -74,7 +74,7 @@ export default function Header() {
 
             <Button
               onClick={() => router.push("/seller/register")}
-              className="bg-white text-primary text-[18px] font-semibold px-4 py-1.5 rounded-full"
+              className="bg-white text-primary text-[18px] font-semibold px-4 py-1.5 rounded-full hover:shadow-md hover:bg-white"
             >
               Start Selling <ArrowRight className="w-4 h-4 ml-1" />
             </Button>
