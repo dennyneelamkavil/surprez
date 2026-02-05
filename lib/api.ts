@@ -26,18 +26,15 @@ async function request<T>(
     "Content-Type": "application/json",
   };
 
-  if (tokenType === "seller") {
-    const token = getSellerToken();
-    if (token) {
-      headers.Authorization = `Bearer ${token}`;
-    }
-  }
+  const token =
+    tokenType === "seller"
+      ? getSellerToken()
+      : tokenType === "customer"
+        ? getCustomerToken()
+        : null;
 
-  if (tokenType === "customer") {
-    const token = getCustomerToken();
-    if (token) {
-      headers.Authorization = `Bearer ${token}`;
-    }
+  if (token) {
+    headers.Authorization = `Bearer ${token}`;
   }
 
   const res = await fetch(`${BASE_URL}${path}`, {
@@ -46,7 +43,8 @@ async function request<T>(
     body: body ? JSON.stringify(body) : undefined,
   });
 
-  const data = await res.json();
+  const text = await res.text();
+  const data = text ? JSON.parse(text) : null;
 
   if (!res.ok) {
     throw new Error(data?.message || "Something went wrong");
