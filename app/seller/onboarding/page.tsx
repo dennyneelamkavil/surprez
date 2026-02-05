@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,33 +12,26 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { sellerApi } from "@/lib/api";
 
 export default function OnboardingPage() {
   const router = useRouter();
-  const [businessType, setBusinessType] = useState<
-    "individual" | "small-shop" | "brand"
-  >("individual");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const [sellerType, setSellerType] = useState<"vendor" | "craft_maker">(
+    "craft_maker",
+  );
 
   const [formData, setFormData] = useState({
-    businessName: "",
-    displayName: "",
-    primaryCategory: "",
-    addressLine: "",
+    legalName: "",
+    address: "",
     pincode: "",
     city: "",
     state: "",
-    gstNumber: "",
+    gstin: "",
+    businessType: "",
   });
-
-  const categories = [
-    "Toys & Kids Products",
-    "Handmade & Crafted",
-    "Personalized Crafts",
-    "Home & Desk Decor",
-    "Party Gifts",
-    "Photo Frames",
-    "Perfumes",
-  ];
 
   const states = [
     "Andhra Pradesh",
@@ -71,6 +64,13 @@ export default function OnboardingPage() {
     "West Bengal",
   ];
 
+  useEffect(() => {
+    const token = localStorage.getItem("seller_token");
+    if (!token) {
+      router.replace("/seller/register");
+    }
+  }, [router]);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -80,18 +80,36 @@ export default function OnboardingPage() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleBack = () => {
-    router.back();
+  const handleContinue = async () => {
+    setError(null);
+    setLoading(true);
+
+    try {
+      await sellerApi.post("/onboarding", {
+        sellerType,
+        businessType: formData.businessType || undefined,
+        legalName: formData.legalName || undefined,
+        gstin: formData.gstin || undefined,
+        businessAddress: {
+          address: formData.address,
+          city: formData.city,
+          state: formData.state,
+          pincode: formData.pincode,
+          country: "India",
+        },
+      });
+
+      localStorage.removeItem("seller_token");
+      router.push("/seller/register/success");
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const handleContinue = () => {
-    // Navigate to dashboard or next step
-    router.push("/seller/dashboard");
-  };
-
-  // Helper class for consistent input styling
   const inputClass =
-    "w-full bg-[#EEEEEE] border-transparent focus:border-[#74BE4A] focus:bg-white transition-colors h-11 text-[16px] md:text-[16px] rounded-md placeholder:text-gray-400";
+    "w-full bg-[#EEEEEE] border-transparent focus:border-[#74BE4A] focus:bg-white transition-colors h-11 text-[16px] rounded-md placeholder:text-gray-400";
   const labelClass = "block text-[18px] font-semibold text-black mb-1.5";
   const sectionHeaderClass =
     "text-[16px] font-medium text-[#676767] mb-3 uppercase tracking-wider";
@@ -108,24 +126,23 @@ export default function OnboardingPage() {
         </p>
       </div>
 
-      <form className="space-y-8">
+      <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
         {/* Section 1: Business Type */}
         <div>
           <h2 className={sectionHeaderClass}>1. Business Type</h2>
           <div className="flex flex-wrap gap-4">
             {[
-              { id: "individual", label: "Individual" },
-              { id: "small-shop", label: "Small Shop" },
-              { id: "brand", label: "Brand" },
-            ].map((type) => {
-              const isSelected = businessType === type.id;
+              { id: "craft_maker", label: "Craft Maker" },
+              { id: "vendor", label: "Vendor" },
+            ].map((type, idx) => {
+              const isSelected = sellerType === type.id;
 
               return (
                 <button
-                  key={type.id}
+                  key={idx}
                   type="button"
-                  onClick={() => setBusinessType(type.id as any)}
-                  className={`relative px-6 py-2 rounded-sm border text-[16px] font-medium transition-all
+                  onClick={() => setSellerType(type.id as any)}
+                  className={`relative px-6 py-2 rounded-sm border text-[16px] font-medium transition-all cursor-pointer
                     ${
                       isSelected
                         ? "border-primary bg-[#F0FDF4] text-[#2D7648]"
@@ -145,57 +162,46 @@ export default function OnboardingPage() {
           </div>
         </div>
 
-        {/* Section 2: Shop Information */}
+        {/* Section 2: Legal Information */}
         <div className="space-y-5">
-          <h2 className={sectionHeaderClass}>2. Shop Information</h2>
+          <h2 className={sectionHeaderClass}>2. Legal Information</h2>
 
-          {/* Shop/Business Name */}
-          <div>
-            <label className={labelClass}>Shop / Business Name</label>
-            <Input
-              type="text"
-              name="businessName"
-              placeholder="e.g. Creative Crafts"
-              value={formData.businessName}
-              onChange={handleInputChange}
-              className={inputClass}
-            />
-            <p className="text-[12px] text-[#C2C2C2] mt-1">
-              This name will be shown to customers
-            </p>
-          </div>
-
-          {/* Display Name */}
           <div>
             <label className={labelClass}>
-              Display Name <span className="text-[#AAAAAA]">(Optional)</span>
+              Legal Name <span className="text-[#AAAAAA]">(Optional)</span>
             </label>
             <Input
               type="text"
-              name="displayName"
-              placeholder="Same as business name"
-              value={formData.displayName}
+              name="legalName"
+              placeholder="Enter legal name"
+              value={formData.legalName}
               onChange={handleInputChange}
               className={inputClass}
             />
           </div>
 
-          {/* Primary Category */}
           <div>
-            <label className={labelClass}>Primary Category</label>
+            <label className={labelClass}>
+              Business Type <span className="text-[#AAAAAA]">(Optional)</span>
+            </label>
             <Select
-              value={formData.primaryCategory}
-              onValueChange={(value) =>
-                handleSelectChange("primaryCategory", value)
-              }
+              value={formData.businessType}
+              onValueChange={(v) => handleSelectChange("businessType", v)}
             >
               <SelectTrigger className={`${inputClass} px-3`}>
-                <SelectValue placeholder="Search category (e.g. Toys)" />
+                <SelectValue placeholder="Select business type" />
               </SelectTrigger>
               <SelectContent>
-                {categories.map((category) => (
-                  <SelectItem key={category} value={category}>
-                    {category}
+                {[
+                  "individual",
+                  "proprietorship",
+                  "partnership",
+                  "llp",
+                  "private_limited",
+                  "public_limited",
+                ].map((t) => (
+                  <SelectItem key={t} value={t}>
+                    {t.replace("_", " ").toUpperCase()}
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -207,20 +213,18 @@ export default function OnboardingPage() {
         <div className="space-y-5">
           <h2 className={sectionHeaderClass}>3. Business Address</h2>
 
-          {/* Address Line */}
           <div>
-            <label className={labelClass}>Address Line</label>
+            <label className={labelClass}>Address</label>
             <Input
               type="text"
-              name="addressLine"
-              placeholder="Flat, House no., Building, Company, Apartment"
-              value={formData.addressLine}
+              name="address"
+              placeholder="Enter business address"
+              value={formData.address}
               onChange={handleInputChange}
               className={inputClass}
             />
           </div>
 
-          {/* Pincode and City */}
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className={labelClass}>Pincode</label>
@@ -238,21 +242,19 @@ export default function OnboardingPage() {
               <Input
                 type="text"
                 name="city"
-                placeholder="Auto-filled"
+                placeholder="Enter city"
                 value={formData.city}
                 onChange={handleInputChange}
-                className={`${inputClass} bg-gray-100 text-gray-500`}
-                disabled
+                className={inputClass}
               />
             </div>
           </div>
 
-          {/* State */}
           <div>
             <label className={labelClass}>State</label>
             <Select
               value={formData.state}
-              onValueChange={(value) => handleSelectChange("state", value)}
+              onValueChange={(v) => handleSelectChange("state", v)}
             >
               <SelectTrigger className={`${inputClass} px-3`}>
                 <SelectValue placeholder="Select state" />
@@ -268,41 +270,45 @@ export default function OnboardingPage() {
           </div>
         </div>
 
-        {/* Section 4: Tax & Compliance */}
+        {/* Section 4: Tax */}
         <div className="space-y-5">
           <h2 className={sectionHeaderClass}>4. Tax & Compliance</h2>
+
           <div>
             <label className={labelClass}>
               GST Number <span className="text-[#AAAAAA]">(Optional)</span>
             </label>
             <Input
               type="text"
-              name="gstNumber"
+              name="gstin"
               placeholder="Enter GSTIN"
-              value={formData.gstNumber}
+              value={formData.gstin}
               onChange={handleInputChange}
               className={inputClass}
             />
-            <p className="text-[12px] text-[#C2C2C2] mt-1">
-              Required only if applicable to your business type
-            </p>
           </div>
         </div>
 
-        {/* Action Buttons */}
+        {/* Error */}
+        {error && (
+          <p className="text-red-500 text-[14px] font-medium">{error}</p>
+        )}
+
+        {/* Actions */}
         <div className="pt-2 flex flex-col items-center gap-3">
           <Button
             type="button"
             onClick={handleContinue}
+            disabled={loading}
             className="w-full bg-gradient-to-r from-[#74BE4A] to-[#328A00] text-white font-semibold h-12 rounded-lg mt-6 shadow-sm text-[24px]"
           >
-            Continue
+            {loading ? "Submitting..." : "Submit & Continue"}
           </Button>
 
           <Button
             type="button"
-            onClick={handleBack}
-            className="text-[#AAAAAA] hover:text-gray-600 bg-transparent hover:bg-transparent text-[24px] font-semibold transition-colors"
+            onClick={() => router.back()}
+            className="text-[#AAAAAA] bg-transparent hover:bg-transparent text-[24px] font-semibold"
           >
             Back
           </Button>

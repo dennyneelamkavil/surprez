@@ -1,29 +1,62 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
+import { sellerApi } from "@/lib/api";
 
 export default function RegisterPage() {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
   const [formData, setFormData] = useState({
-    fullName: "",
+    businessName: "",
     email: "",
-    mobileNumber: "",
+    phone: "",
     password: "",
   });
+
+  useEffect(() => {
+    const token = localStorage.getItem("seller_token");
+    if (token) {
+      router.replace("/seller/onboarding");
+    }
+  }, [router]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleContinue = () => {
-    router.push("/seller/onboarding");
+  const handleContinue = async () => {
+    setError(null);
+    setLoading(true);
+
+    try {
+      const res = await sellerApi.post<{
+        token: string;
+        seller: {
+          id: string;
+          email: string;
+          businessName: string;
+          status: string;
+        };
+      }>("/auth/register", formData);
+
+      // store onboarding token
+      localStorage.setItem("seller_token", res.token);
+
+      router.push("/seller/onboarding");
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -39,19 +72,19 @@ export default function RegisterPage() {
       </div>
 
       {/* Form */}
-      <form className="space-y-5">
-        {/* Full Name */}
+      <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+        {/* Business Name */}
         <div>
           <label className="block text-[18px] font-semibold text-black mb-1.5">
-            Full Name
+            Business Name
           </label>
           <Input
             type="text"
-            name="fullName"
-            placeholder="e.g. Rahul Sharma"
-            value={formData.fullName}
+            name="businessName"
+            placeholder="e.g. Rahul Crafts"
+            value={formData.businessName}
             onChange={handleInputChange}
-            className="w-full bg-[#EEEEEE] border-transparent focus:border-[#74BE4A] focus:bg-white transition-colors h-11 text-[16px] md:text-[16px] rounded-md placeholder:text-gray-400"
+            className="w-full bg-[#EEEEEE] border-transparent focus:border-[#74BE4A] focus:bg-white transition-colors h-11 text-[16px] rounded-md placeholder:text-gray-400"
           />
         </div>
 
@@ -66,7 +99,7 @@ export default function RegisterPage() {
             placeholder="name@example.com"
             value={formData.email}
             onChange={handleInputChange}
-            className="w-full bg-[#EEEEEE] border-transparent focus:border-[#74BE4A] focus:bg-white transition-colors h-11 text-[16px] md:text-[16px] rounded-md placeholder:text-gray-400"
+            className="w-full bg-[#EEEEEE] border-transparent focus:border-[#74BE4A] focus:bg-white transition-colors h-11 text-[16px] rounded-md placeholder:text-gray-400"
           />
         </div>
 
@@ -77,11 +110,11 @@ export default function RegisterPage() {
           </label>
           <Input
             type="tel"
-            name="mobileNumber"
+            name="phone"
             placeholder="+91 98765 43210"
-            value={formData.mobileNumber}
+            value={formData.phone}
             onChange={handleInputChange}
-            className="w-full bg-[#EEEEEE] border-transparent focus:border-[#74BE4A] focus:bg-white transition-colors h-11 text-[16px] md:text-[16px] rounded-md placeholder:text-gray-400"
+            className="w-full bg-[#EEEEEE] border-transparent focus:border-[#74BE4A] focus:bg-white transition-colors h-11 text-[16px] rounded-md placeholder:text-gray-400"
           />
         </div>
 
@@ -97,12 +130,12 @@ export default function RegisterPage() {
               placeholder="Create a strong password"
               value={formData.password}
               onChange={handleInputChange}
-              className="w-full bg-[#EEEEEE] border-transparent focus:border-[#74BE4A] focus:bg-white transition-colors h-11 text-[16px] md:text-[16px] rounded-md placeholder:text-gray-400 pr-10"
+              className="w-full bg-[#EEEEEE] border-transparent focus:border-[#74BE4A] focus:bg-white transition-colors h-11 text-[16px] rounded-md placeholder:text-gray-400 pr-10"
             />
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 cursor-pointer"
             >
               {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
             </button>
@@ -112,13 +145,19 @@ export default function RegisterPage() {
           </p>
         </div>
 
+        {/* Error */}
+        {error && (
+          <p className="text-red-500 text-[14px] font-medium">{error}</p>
+        )}
+
         {/* Continue Button */}
         <Button
           type="button"
           onClick={handleContinue}
+          disabled={loading}
           className="w-full bg-gradient-to-r from-[#74BE4A] to-[#328A00] text-white font-semibold h-12 rounded-lg mt-6 shadow-sm text-[24px]"
         >
-          Register & Continue
+          {loading ? "Registering..." : "Register & Continue"}
         </Button>
       </form>
 
