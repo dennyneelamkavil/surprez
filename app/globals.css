@@ -79,6 +79,11 @@ html {
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 /* =========================================================
    DARK MODE (EXACT SAME BRAND GREEN)
    ========================================================= */

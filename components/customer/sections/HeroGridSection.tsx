@@ -87,7 +87,7 @@ export default function HeroGridSection() {
         </div>
 
         {/* ================= BOTTOM ROW (1:1 Split) ================= */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 h-auto lg:h-[276px]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 h-auto lg:h-[276px] overflow-visible">
           {/* Card 3: Purple Wide (Every Moment Matters) */}
           <div className="bg-[#59489C] rounded-[32px] relative overflow-hidden flex items-center justify-between px-8 md:px-12 py-8 min-h-[280px]">
             {/* Background Image */}
@@ -125,7 +125,7 @@ export default function HeroGridSection() {
           </div>
 
           {/* Card 4: Green Wide (Delivery) */}
-          <div className="bg-[#74BE4A] rounded-[32px] relative overflow-hidden flex items-center px-8 md:px-12 py-8 min-h-[280px]">
+          <div className="bg-[#74BE4A] rounded-[32px] relative flex items-center px-8 md:px-12 py-8 min-h-[280px]">
             {/* Background Image */}
             <div
               className="absolute inset-0 bg-cover bg-center z-0 opacity-[0.04]"
