@@ -140,26 +140,24 @@ export default function Footer() {
           {/* Get in touch */}
           <div>
             <SectionHeader>Get in touch</SectionHeader>
-            <ul className="space-y-3 text-[13px]">
+            <ul className="space-y-4">
               <li className="flex items-center gap-2">
-                {/* Lime green icon style matching image */}
                 <Mail className="w-4 h-4 text-primary" />
-                <Link
-                  href="mailto:sellers@surprez.com"
-                  className="text-[#8A8A8A] text-[16px] font-medium underline decoration-gray-300 underline-offset-2"
+                <a
+                  href="mailto:hello@surprez.com"
+                  className="text-[16px] font-medium text-[#8A8A8A] hover:text-primary underline"
                 >
-                  sellers@surprez.com
-                </Link>
+                  hello@surprez.com
+                </a>
               </li>
               <li className="flex items-center gap-2">
-                {/* Lime green icon style matching image */}
                 <Phone className="w-4 h-4 text-primary" />
-                <Link
+                <a
                   href="tel:+919876541230"
-                  className="text-[#8A8A8A] text-[16px] font-medium underline decoration-gray-300 underline-offset-2"
+                  className="text-[16px] font-medium text-[#8A8A8A] hover:text-primary underline"
                 >
                   +91 9876541230
-                </Link>
+                </a>
               </li>
             </ul>
           </div>

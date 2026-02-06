@@ -10,7 +10,7 @@ function FooterLink({ children }: { children: React.ReactNode }) {
   return (
     <Link
       href="#"
-      className="text-[15px] text-[#555555] hover:text-[#59489C] transition-colors"
+      className="text-[16px] font-medium text-[#8A8A8A] hover:text-secondary transition-colors"
     >
       {children}
     </Link>
@@ -45,7 +45,7 @@ function SocialIcon({
 
 function SectionHeader({ children }: { children: React.ReactNode }) {
   return (
-    <h4 className="mb-4 text-[16px] font-bold text-black uppercase tracking-wide">
+    <h4 className="mb-4 text-[20px] font-bold text-black uppercase tracking-wide">
       {children}
     </h4>
   );
@@ -55,12 +55,12 @@ function SectionHeader({ children }: { children: React.ReactNode }) {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#F7F5FF] text-[#4D4D4D] pt-16 pb-8 border-t border-[#EBEBEB]">
+    <footer className="bg-[#F7F5FF] text-[#4D4D4D] pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-6">
         {/* ================= TOP SECTION ================= */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-6 gap-12 mb-12">
           {/* Brand Column */}
-          <div className="lg:col-span-1 space-y-5">
+          <div className="lg:col-span-2 space-y-5">
             <Image
               src="/logos/logo.png"
               alt="Surprez"
@@ -68,21 +68,37 @@ export default function Footer() {
               height={45}
               className="object-contain"
             />
-            <p className="text-[14px] leading-6 text-[#555555] max-w-xs">
+            <p className="text-[16px] font-medium leading-6 text-[#4D4D4D] max-w-xs">
               Making Every Occasion Memorable With Thoughtfully Curated Gifts
               Delivered With Love And Care.
             </p>
             {/* Social Icons */}
             <div className="flex gap-3 pt-2">
-              <SocialIcon src="/icons/facebook.svg" alt="Facebook" />
-              <SocialIcon src="/icons/instagram.svg" alt="Instagram" />
-              <SocialIcon src="/icons/linkedin.svg" alt="LinkedIn" />
-              <SocialIcon src="/icons/x.svg" alt="X" />
+              <SocialIcon
+                src="/icons/facebook.svg"
+                alt="Facebook"
+                href="https://facebook.com"
+              />
+              <SocialIcon
+                src="/icons/instagram.svg"
+                alt="Instagram"
+                href="https://instagram.com"
+              />
+              <SocialIcon
+                src="/icons/linkedin.svg"
+                alt="LinkedIn"
+                href="https://linkedin.com"
+              />
+              <SocialIcon
+                src="/icons/x.svg"
+                alt="X (Twitter)"
+                href="https://x.com"
+              />
             </div>
           </div>
 
           {/* Links Columns Container */}
-          <div className="lg:col-span-3 grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="lg:col-span-4 grid grid-cols-2 md:grid-cols-4 gap-8">
             {/* Shop */}
             <div>
               <SectionHeader>Shop</SectionHeader>
@@ -145,19 +161,19 @@ export default function Footer() {
               <SectionHeader>Get in Touch</SectionHeader>
               <ul className="space-y-4">
                 <li className="flex items-center gap-2">
-                  <Mail className="w-4 h-4 text-[#74BE4A]" />
+                  <Mail className="w-4 h-4 text-primary" />
                   <a
                     href="mailto:hello@surprez.com"
-                    className="text-[14px] text-[#555555] hover:text-[#59489C]"
+                    className="text-[16px] font-medium text-[#8A8A8A] hover:text-primary underline"
                   >
                     hello@surprez.com
                   </a>
                 </li>
                 <li className="flex items-center gap-2">
-                  <Phone className="w-4 h-4 text-[#74BE4A]" />
+                  <Phone className="w-4 h-4 text-primary" />
                   <a
                     href="tel:+919876541230"
-                    className="text-[14px] text-[#555555] hover:text-[#59489C]"
+                    className="text-[16px] font-medium text-[#8A8A8A] hover:text-primary underline"
                   >
                     +91 9876541230
                   </a>
@@ -168,12 +184,12 @@ export default function Footer() {
         </div>
 
         {/* ================= NEWSLETTER SECTION ================= */}
-        <div className="bg-white rounded-2xl shadow-sm p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
+        <div className="bg-white rounded-2xl shadow-md p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
           <div className="space-y-1 text-center md:text-left">
-            <h3 className="text-[16px] font-bold text-black">
+            <h3 className="text-[16px] font-semibold text-black">
               Get Special Offers & Updates
             </h3>
-            <p className="text-[13px] text-gray-500">
+            <p className="text-[15px] font-medium text-[#777777]">
               Subscribe To Our Newsletter For Exclusive Deals And Gifting
               Inspiration
             </p>
@@ -183,32 +199,32 @@ export default function Footer() {
             <Input
               type="email"
               placeholder="Enter your mail"
-              className="h-11 w-full md:w-64 rounded-full border-gray-300 focus-visible:ring-[#59489C]"
+              className="h-11 w-full md:w-64 text-[15px] text-black font-medium placeholder:text-[#A2A2A2] placeholder:text-[15px] rounded-full border-secondary focus-visible:ring-secondary focus-visible:border-secondary focus-visible:ring-1 focus-visible:ring-offset-0"
             />
-            <Button className="h-11 px-8 rounded-full bg-[#74BE4A] hover:bg-[#63a33f] text-white font-semibold">
+            <Button className="h-11 px-8 rounded-full text-[20px] font-medium bg-primary hover:bg-[#63a33f] text-white transition-colors">
               Subscribe
             </Button>
           </div>
         </div>
 
         {/* ================= BOTTOM BAR ================= */}
-        <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[14px] text-[#898989]">
+        <div className="border-t border-[#DCDCDC] pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[18px] font-medium text-[#898989]">
           {/* Left: Copyright */}
           <div className="text-center md:text-left">
             © 2025 Surprez. All Rights Reserved.
           </div>
 
           {/* Center: Made With Love */}
-          <div className="flex items-center gap-1 font-medium text-[#59489C]">
+          <div className="flex items-center gap-1 font-medium text-secondary">
             Made With <span className="text-red-500">♥</span> For Gift Lovers
           </div>
 
           {/* Right: Legal Links */}
           <div className="flex gap-6">
-            <Link href="#" className="hover:text-[#59489C]">
+            <Link href="#" className="hover:text-secondary">
               Privacy Policy
             </Link>
-            <Link href="#" className="hover:text-[#59489C]">
+            <Link href="#" className="hover:text-secondary">
               Terms Of Service
             </Link>
           </div>
