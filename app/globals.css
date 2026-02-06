@@ -194,3 +194,21 @@ html {
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes scrollX {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Wrapper controls pause */
+.ticker {
+  animation: scrollX 16s ease-in-out infinite alternate;
+}
+
+.ticker-wrapper:hover .ticker {
+  animation-play-state: paused;
+}
