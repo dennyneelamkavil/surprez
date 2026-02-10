@@ -28,7 +28,7 @@ const products: Product[] = [
   },
   {
     id: "4",
-    title: "Toys & Kids Products",
+    title: "Surprise Boxes",
     image: "/seller/categories/kids.png", // Gift Box
   },
   {
