@@ -11,64 +11,56 @@ const trendingProducts = [
     title: "Gourmet Chocolate Box",
     subtitle: "Premium Assorted Truffles",
     price: "₹300.00",
-    image:
-      "https://images.unsplash.com/photo-1549007994-cb92caebd54b?q=80&w=1000&auto=format&fit=crop", // Chocolate Box
+    image: "/customer/trending/chocolate.jpg",
   },
   {
     id: 2,
     title: "Summer Breeze Bouquet",
     subtitle: "Fresh Seasonal Flowers",
     price: "₹199.00",
-    image:
-      "https://images.unsplash.com/photo-1561181286-d3fee7d55364?q=80&w=1000&auto=format&fit=crop", // Bouquet
+    image: "/customer/trending/bouquet.jpg",
   },
   {
     id: 3,
     title: "Artisan Custom Mug",
     subtitle: "Handmade Craft",
     price: "₹450.00",
-    image:
-      "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?q=80&w=1000&auto=format&fit=crop", // Mug
+    image: "/customer/trending/mug.jpg",
   },
   {
     id: 4,
     title: "Zen Candle Set",
     subtitle: "Vanilla Scents",
     price: "₹199.00",
-    image:
-      "https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=1000&auto=format&fit=crop", // Candles
+    image: "/customer/trending/candle.jpg",
   },
   {
     id: 5,
     title: "Buzz Lightyear Action Figure",
     subtitle: "Collector Edition Toy",
     price: "₹1,299.00",
-    image:
-      "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?q=80&w=1000&auto=format&fit=crop", // Toy
+    image: "/customer/trending/buzz.jpg",
   },
   {
     id: 6,
     title: "Modern Indoor Plant",
     subtitle: "Minimal Home Decor",
     price: "₹699.00",
-    image:
-      "https://images.unsplash.com/photo-1485955900006-10f4d324d411?q=80&w=1000&auto=format&fit=crop", // Plant
+    image: "/customer/trending/plant.jpg",
   },
   {
     id: 7,
     title: "Fiddle Leaf Plant",
     subtitle: "Fresh Green Home Accent",
     price: "₹799.00",
-    image:
-      "https://images.unsplash.com/photo-1599598425947-321245e320f7?q=80&w=1000&auto=format&fit=crop", // Fiddle Leaf
+    image: "/customer/trending/leaf-plant.jpg",
   },
   {
     id: 8,
     title: "Batman Rubber Duck",
     subtitle: "Fun Collectible Gift",
     price: "₹299.00",
-    image:
-      "https://images.unsplash.com/photo-1581557991964-125469da3b8a?q=80&w=1000&auto=format&fit=crop", // Duck/Toy
+    image: "/customer/trending/rubber-duck.jpg",
   },
 ];
 
