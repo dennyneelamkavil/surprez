@@ -84,7 +84,7 @@ export default function RegisterPage() {
             placeholder="e.g. Rahul Crafts"
             value={formData.businessName}
             onChange={handleInputChange}
-            className="w-full bg-[#EEEEEE] border-transparent focus:border-[#74BE4A] focus:bg-white transition-colors h-11 text-[16px] rounded-md placeholder:text-gray-400"
+            className="w-full bg-[#EEEEEE] border-transparent focus:border-primary focus:bg-white transition-colors h-11 text-[16px] rounded-md placeholder:text-gray-400"
           />
         </div>
 
@@ -99,7 +99,7 @@ export default function RegisterPage() {
             placeholder="name@example.com"
             value={formData.email}
             onChange={handleInputChange}
-            className="w-full bg-[#EEEEEE] border-transparent focus:border-[#74BE4A] focus:bg-white transition-colors h-11 text-[16px] rounded-md placeholder:text-gray-400"
+            className="w-full bg-[#EEEEEE] border-transparent focus:border-primary focus:bg-white transition-colors h-11 text-[16px] rounded-md placeholder:text-gray-400"
           />
         </div>
 
@@ -114,7 +114,7 @@ export default function RegisterPage() {
             placeholder="+91 98765 43210"
             value={formData.phone}
             onChange={handleInputChange}
-            className="w-full bg-[#EEEEEE] border-transparent focus:border-[#74BE4A] focus:bg-white transition-colors h-11 text-[16px] rounded-md placeholder:text-gray-400"
+            className="w-full bg-[#EEEEEE] border-transparent focus:border-primary focus:bg-white transition-colors h-11 text-[16px] rounded-md placeholder:text-gray-400"
           />
         </div>
 
@@ -130,7 +130,7 @@ export default function RegisterPage() {
               placeholder="Create a strong password"
               value={formData.password}
               onChange={handleInputChange}
-              className="w-full bg-[#EEEEEE] border-transparent focus:border-[#74BE4A] focus:bg-white transition-colors h-11 text-[16px] rounded-md placeholder:text-gray-400 pr-10"
+              className="w-full bg-[#EEEEEE] border-transparent focus:border-primary focus:bg-white transition-colors h-11 text-[16px] rounded-md placeholder:text-gray-400 pr-10"
             />
             <button
               type="button"
@@ -155,7 +155,7 @@ export default function RegisterPage() {
           type="button"
           onClick={handleContinue}
           disabled={loading}
-          className="w-full bg-gradient-to-r from-[#74BE4A] to-[#328A00] text-white font-semibold h-12 rounded-lg mt-6 shadow-sm text-[24px]"
+          className="w-full bg-gradient-to-r from-primary to-[#328A00] text-white font-semibold h-12 rounded-lg mt-6 shadow-sm text-[24px]"
         >
           {loading ? "Registering..." : "Register & Continue"}
         </Button>

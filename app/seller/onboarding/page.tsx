@@ -109,7 +109,7 @@ export default function OnboardingPage() {
   };
 
   const inputClass =
-    "w-full bg-[#EEEEEE] border-transparent focus:border-[#74BE4A] focus:bg-white transition-colors h-11 text-[16px] rounded-md placeholder:text-gray-400";
+    "w-full bg-[#EEEEEE] border-transparent focus:border-primary focus:bg-white transition-colors h-11 text-[16px] rounded-md placeholder:text-gray-400";
   const labelClass = "block text-[18px] font-semibold text-black mb-1.5";
   const sectionHeaderClass =
     "text-[16px] font-medium text-[#676767] mb-3 uppercase tracking-wider";
@@ -300,7 +300,7 @@ export default function OnboardingPage() {
             type="button"
             onClick={handleContinue}
             disabled={loading}
-            className="w-full bg-gradient-to-r from-[#74BE4A] to-[#328A00] text-white font-semibold h-12 rounded-lg mt-6 shadow-sm text-[24px]"
+            className="w-full bg-gradient-to-r from-primary to-[#328A00] text-white font-semibold h-12 rounded-lg mt-6 shadow-sm text-[24px]"
           >
             {loading ? "Submitting..." : "Submit & Continue"}
           </Button>

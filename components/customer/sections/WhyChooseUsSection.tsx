@@ -5,17 +5,17 @@ import { Gift, Package, ShieldCheck, Truck } from "lucide-react";
 
 export default function WhyChooseUsSection() {
   return (
-    <section className="w-full py-16 md:py-24 bg-[#FFFCF6]">
-      <div className="max-w-[1400px] mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <section className="w-full py-16 md:py-24 bg-[#FFF89C1C]">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-7 gap-12 lg:gap-0 items-center">
           {/* ================= LEFT CONTENT ================= */}
-          <div className="space-y-8">
+          <div className="space-y-8 col-span-1 lg:col-span-4">
             {/* Text Header */}
             <div>
-              <h2 className="text-[20px] font-bold text-[#59489C] uppercase tracking-wide mb-4">
+              <h2 className="text-[24px] font-bold text-secondary uppercase tracking-wide mb-4">
                 Why Choose Surprez
               </h2>
-              <p className="text-[15px] leading-relaxed text-[#555555] text-justify">
+              <p className="text-[20px] font-medium leading-relaxed text-[#9B9B9B] text-justify">
                 Surprez makes gifting effortless and meaningful with
                 thoughtfully curated gifts, personalized creations from trusted
                 crafters, and premium packaging that elevates every surprise.
@@ -36,60 +36,60 @@ export default function WhyChooseUsSection() {
             {/* Feature Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {/* Card 1: Curated Gifts */}
-              <div className="bg-[#74BE4A] rounded-[16px] p-5 flex items-start gap-4 shadow-sm hover:shadow-md transition-shadow">
-                <div className="bg-white/20 p-2.5 rounded-lg flex-shrink-0">
-                  <Gift className="w-6 h-6 text-white" />
+              <div className="bg-primary rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px] p-5 flex items-start gap-4 shadow-sm hover:shadow-md transition-shadow">
+                <div className="bg-white p-2.5 rounded-lg flex-shrink-0">
+                  <Gift className="w-6 h-6 text-secondary" />
                 </div>
                 <div>
-                  <h3 className="text-white font-bold text-[16px] mb-1">
+                  <h3 className="text-white font-bold text-[20px] mb-1">
                     Curated Gifts
                   </h3>
-                  <p className="text-white/90 text-[12px] leading-tight">
+                  <p className="text-[#F1F1F1] text-[16px] font-semibold leading-tight">
                     Every item is handpicked for quality and uniqueness.
                   </p>
                 </div>
               </div>
 
               {/* Card 2: Surprise Packaging */}
-              <div className="bg-[#74BE4A] rounded-[16px] p-5 flex items-start gap-4 shadow-sm hover:shadow-md transition-shadow">
-                <div className="bg-white/20 p-2.5 rounded-lg flex-shrink-0">
-                  <Package className="w-6 h-6 text-white" />
+              <div className="bg-primary rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px] p-5 flex items-start gap-4 shadow-sm hover:shadow-md transition-shadow">
+                <div className="bg-white p-2.5 rounded-lg flex-shrink-0">
+                  <Package className="w-6 h-6 text-secondary" />
                 </div>
                 <div>
-                  <h3 className="text-white font-bold text-[16px] mb-1">
+                  <h3 className="text-white font-bold text-[20px] mb-1">
                     Surprise Packaging
                   </h3>
-                  <p className="text-white/90 text-[12px] leading-tight">
+                  <p className="text-[#F1F1F1] text-[16px] font-semibold leading-tight">
                     Premium packaging for a special unboxing.
                   </p>
                 </div>
               </div>
 
               {/* Card 3: Trusted Crafters */}
-              <div className="bg-[#74BE4A] rounded-[16px] p-5 flex items-start gap-4 shadow-sm hover:shadow-md transition-shadow">
-                <div className="bg-white/20 p-2.5 rounded-lg flex-shrink-0">
-                  <ShieldCheck className="w-6 h-6 text-white" />
+              <div className="bg-primary rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px] p-5 flex items-start gap-4 shadow-sm hover:shadow-md transition-shadow">
+                <div className="bg-white p-2.5 rounded-lg flex-shrink-0">
+                  <ShieldCheck className="w-6 h-6 text-secondary" />
                 </div>
                 <div>
-                  <h3 className="text-white font-bold text-[16px] mb-1">
+                  <h3 className="text-white font-bold text-[20px] mb-1">
                     Trusted Crafters
                   </h3>
-                  <p className="text-white/90 text-[12px] leading-tight">
+                  <p className="text-[#F1F1F1] text-[16px] font-semibold leading-tight">
                     Verified sellers so you can shop with confidence.
                   </p>
                 </div>
               </div>
 
               {/* Card 4: Fast Delivery */}
-              <div className="bg-[#74BE4A] rounded-[16px] p-5 flex items-start gap-4 shadow-sm hover:shadow-md transition-shadow">
-                <div className="bg-white/20 p-2.5 rounded-lg flex-shrink-0">
-                  <Truck className="w-6 h-6 text-white" />
+              <div className="bg-primary rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px] p-5 flex items-start gap-4 shadow-sm hover:shadow-md transition-shadow">
+                <div className="bg-white p-2.5 rounded-lg flex-shrink-0">
+                  <Truck className="w-6 h-6 text-secondary" />
                 </div>
                 <div>
-                  <h3 className="text-white font-bold text-[16px] mb-1">
+                  <h3 className="text-white font-bold text-[20px] mb-1">
                     Fast Delivery
                   </h3>
-                  <p className="text-white/90 text-[12px] leading-tight">
+                  <p className="text-[#F1F1F1] text-[16px] font-semibold leading-tight">
                     Quick delivery because surprises shouldn't wait.
                   </p>
                 </div>
@@ -98,27 +98,26 @@ export default function WhyChooseUsSection() {
           </div>
 
           {/* ================= RIGHT IMAGE ================= */}
-          <div className="relative flex justify-center lg:justify-end items-end h-full min-h-[400px]">
+          <div className="relative flex justify-center lg:justify-end items-end h-full min-h-[400px] col-span-1 lg:col-span-3 overflow-visible">
             {/* Background Purple Card */}
-            <div className="absolute bottom-0 right-0 w-[90%] h-[85%] bg-[#59489C] rounded-[24px] z-0 overflow-hidden">
-              {/* Optional Pattern Overlay */}
-              <div
-                className="absolute inset-0 opacity-10"
-                style={{
-                  backgroundImage:
-                    "repeating-linear-gradient(45deg, transparent, transparent 10px, #000 10px, #000 11px)",
-                }}
+            <div className="absolute bottom-0 right-0 w-[90%] h-[85%] bg-secondary rounded-tr-[10px] rounded-bl-[10px] rounded-br-[10px] z-0 overflow-hidden">
+              <Image
+                src="/bg/surprez.png"
+                alt="background pattern"
+                width={512}
+                height={341}
+                className="absolute top-[-17px] left-[-50px] w-[712px] h-[541px] scale-[1.6] -rotate-[22.64deg] opacity-[0.04] mix-blend-difference pointer-events-none select-none"
               />
             </div>
 
             {/* Person Image */}
-            <div className="relative z-10 w-[80%] max-w-[400px]">
+            <div className="relative z-10 w-[100%] max-w-[400px] bottom-20 right-10">
               <Image
-                src="https://images.unsplash.com/photo-1554528148-18c7d3d248b1?q=80&w=1000&auto=format&fit=crop"
+                src="/customer/why/why.png"
                 alt="Woman holding gift"
                 width={400}
                 height={500}
-                className="object-contain drop-shadow-xl"
+                className="object-contain drop-shadow-xl scale-130"
               />
             </div>
           </div>

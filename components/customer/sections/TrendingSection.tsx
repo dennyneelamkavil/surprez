@@ -74,18 +74,16 @@ const trendingProducts = [
 
 export default function TrendingSection() {
   return (
-    <section className="w-full py-16 bg-[#59489C] relative overflow-hidden">
-      {/* Background Pattern Overlay (Optional CSS pattern can be used here) */}
+    <section className="relative w-full py-16 bg-secondary overflow-hidden">
+      {/* ================= BACKGROUND ================= */}
       <div
-        className="absolute inset-0 opacity-5 pointer-events-none"
+        className="absolute inset-0 bg-cover bg-center opacity-[0.025] scale-125 z-0"
         style={{
-          backgroundImage:
-            "linear-gradient(135deg, #ffffff 1px, transparent 1px), linear-gradient(45deg, #ffffff 1px, transparent 1px)",
-          backgroundSize: "20px 20px",
+          backgroundImage: "url('/bg/boxes.jpg')",
         }}
       />
-
-      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+      {/* ================= CONTENT ================= */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 space-y-16">
         {/* Header */}
         <h2 className="text-[24px] font-bold text-white mb-8">Trending Now</h2>
 
@@ -105,26 +103,26 @@ export default function TrendingSection() {
                   className="object-cover hover:scale-105 transition-transform duration-500"
                 />
                 {/* Heart/Wishlist Button */}
-                <button className="absolute top-3 right-3 w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors shadow-sm group">
+                <button className="absolute top-3 right-3 w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors shadow-sm group cursor-pointer">
                   <Heart className="w-4 h-4 text-gray-400 group-hover:text-red-500 transition-colors" />
                 </button>
               </div>
 
               {/* Content */}
               <div className="flex-1 flex flex-col px-1">
-                <h3 className="font-bold text-[15px] text-gray-900 leading-tight mb-1">
+                <h3 className="font-semibold text-[18px] text-gray-900 leading-tight mb-1">
                   {product.title}
                 </h3>
-                <p className="text-[12px] text-gray-500 mb-4 font-medium">
+                <p className="text-[14px] text-[#747474] mb-4 font-medium">
                   {product.subtitle}
                 </p>
 
                 {/* Price & Action Row */}
                 <div className="mt-auto flex items-center justify-between">
-                  <span className="text-[16px] font-bold text-[#59489C]">
+                  <span className="text-[20px] font-bold text-secondary">
                     {product.price}
                   </span>
-                  <Button className="h-8 px-4 bg-[#74BE4A] hover:bg-[#63a33f] text-white text-[11px] font-bold uppercase tracking-wide rounded-md">
+                  <Button className="h-8 px-4 bg-primary hover:bg-[#63a33f] text-white text-[16px] font-semibold uppercase tracking-wide rounded-md">
                     View Gift
                   </Button>
                 </div>
@@ -132,15 +130,15 @@ export default function TrendingSection() {
             </div>
           ))}
         </div>
+      </div>
 
-        {/* View All Button */}
-        <div className="flex justify-center">
-          <Link href="/trending">
-            <Button className="bg-white text-[#59489C] hover:bg-gray-100 font-bold px-8 py-6 rounded-full text-[14px] shadow-lg transition-transform hover:scale-105">
-              View All Trending <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
-          </Link>
-        </div>
+      {/* View All Button */}
+      <div className="flex justify-center">
+        <Link href="/trending">
+          <Button className="bg-white text-secondary hover:bg-gray-100 font-semibold px-8 py-6 rounded-full text-[20px] shadow-lg transition-transform hover:scale-105">
+            View All Trending <ArrowRight className="w-4 h-4" />
+          </Button>
+        </Link>
       </div>
     </section>
   );

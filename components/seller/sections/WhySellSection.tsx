@@ -65,7 +65,7 @@ export default function WhySellSection() {
                 className={`relative overflow-hidden bg-secondary rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col items-start gap-6 border-4 border-[#EAE5FF] ${staggerClass}`}
               >
                 <Image
-                  src="/seller/why-sell/why-sell-bg.png"
+                  src="/bg/surprez.png"
                   alt=""
                   width={512}
                   height={341}
