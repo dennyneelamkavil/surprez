@@ -17,7 +17,7 @@ export default function HeroGridSection() {
             <div
               className="absolute inset-0 bg-cover bg-center z-0 opacity-[0.04]"
               style={{
-                backgroundImage: "url('/customer/herogrid/green-bg.png')",
+                backgroundImage: "url('/bg/surprez-white.png')",
               }}
             />
             <div className="relative z-10 max-w-md">
@@ -130,7 +130,7 @@ export default function HeroGridSection() {
             <div
               className="absolute inset-0 bg-cover bg-center z-0 opacity-[0.04]"
               style={{
-                backgroundImage: "url('/customer/herogrid/green-bg.png')",
+                backgroundImage: "url('/bg/surprez-white.png')",
               }}
             />
             {/* Text Content (Left Aligned) */}
