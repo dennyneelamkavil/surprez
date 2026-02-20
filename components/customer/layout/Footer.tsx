@@ -216,7 +216,7 @@ export default function Footer() {
 
           {/* Center: Made With Love */}
           <div className="flex items-center gap-1 font-medium text-secondary">
-            Made With <span className="text-red-500">♥</span> For Gift Lovers
+            Made with ❤️ for gift lovers
           </div>
 
           {/* Right: Legal Links */}
