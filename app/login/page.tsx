@@ -91,7 +91,7 @@ export default function LoginPage() {
 
           {/* Footer Text */}
           <p className="mt-6 text-[13px] lg:text-[18px] text-gray-400 font-medium flex items-center gap-1">
-            Made with ❤️ for gift lovers
+            Made With ❤️ For Gift Lovers
           </p>
         </div>
 
