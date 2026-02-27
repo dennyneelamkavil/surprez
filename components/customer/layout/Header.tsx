@@ -3,10 +3,12 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Search, ShoppingCart, Bell } from "lucide-react";
 import { Input } from "@/components/ui/input";
 
 export default function Header() {
+  const pathname = usePathname();
   const [showNav, setShowNav] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -27,6 +29,21 @@ export default function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, [lastScrollY]);
+
+  const navLinks = [
+    { name: "Surprises", href: "/surprises" },
+    { name: "Occasions", href: "/occasions" },
+    { name: "Categories", href: "/categories" },
+    { name: "Gift Ideas", href: "/gift-ideas" },
+    { name: "Instant Delivery", href: "/instant-delivery" },
+    { name: "Deals", href: "/deals" },
+    { name: "Store Location", href: "/store-location" },
+    { name: "Contact Us", href: "/contact" },
+  ];
+
+  const isActive = (href: string) => {
+    return pathname === href || pathname.startsWith(href + "/");
+  };
 
   return (
     <>
@@ -106,30 +123,19 @@ export default function Header() {
       >
         <div className="max-w-7xl mx-auto h-12 px-6 flex items-center justify-center">
           <nav className="flex items-center gap-12 text-white text-[16px] font-medium whitespace-nowrap overflow-x-auto">
-            <Link href="#" className="hover:text-primary transition-colors">
-              Surprises
-            </Link>
-            <Link href="#" className="hover:text-primary transition-colors">
-              Occasions
-            </Link>
-            <Link href="#" className="hover:text-primary transition-colors">
-              Categories
-            </Link>
-            <Link href="#" className="hover:text-primary transition-colors">
-              Gift Ideas
-            </Link>
-            <Link href="#" className="hover:text-primary transition-colors">
-              Instant Delivery
-            </Link>
-            <Link href="#" className="hover:text-primary transition-colors">
-              Deals
-            </Link>
-            <Link href="#" className="hover:text-primary transition-colors">
-              Store Location
-            </Link>
-            <Link href="#" className="hover:text-primary transition-colors">
-              Contact Us
-            </Link>
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`transition-colors relative ${
+                  isActive(link.href)
+                    ? "text-primary font-semibold"
+                    : "hover:text-primary"
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
           </nav>
         </div>
       </div>
