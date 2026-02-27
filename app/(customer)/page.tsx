@@ -6,7 +6,7 @@ import {
   SurpriseDealsSection,
   TrendingSection,
   WhyChooseUsSection,
-} from "@/components/customer/sections";
+} from "@/components/customer/home";
 
 export default function Home() {
   return (
