@@ -113,7 +113,7 @@ export default function WhyChooseUsSection() {
             {/* Person Image */}
             <div className="relative z-10 w-[100%] max-w-[400px] bottom-20 right-10">
               <Image
-                src="/customer/why/why.png"
+                src="/customer/home/why/why.png"
                 alt="Woman holding gift"
                 width={400}
                 height={500}

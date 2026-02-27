@@ -43,7 +43,7 @@ export default function HeroGridSection() {
             {/* Image (Woman holding gift) */}
             <div className="absolute bottom-0 right-0 h-[100%] w-[50%] pointer-events-none">
               <Image
-                src="/customer/herogrid/woman.png"
+                src="/customer/home/herogrid/woman.png"
                 alt="Woman holding gift"
                 fill
                 className="object-contain object-top scale-114"
@@ -57,7 +57,7 @@ export default function HeroGridSection() {
             <div
               className="absolute inset-0 bg-cover bg-center z-0 opacity-[0.1]"
               style={{
-                backgroundImage: "url('/customer/herogrid/gift-stack-bg.jpg')",
+                backgroundImage: "url('/customer/home/herogrid/gift-stack-bg.jpg')",
               }}
             />
             <div className="relative z-10">
@@ -72,7 +72,7 @@ export default function HeroGridSection() {
             {/* Image (Gift Stack) */}
             <div className="absolute bottom-8 w-[100%] h-[60%]">
               <Image
-                src="/customer/herogrid/gift-stack.png"
+                src="/customer/home/herogrid/gift-stack.png"
                 alt="Gift Stack"
                 fill
                 className="object-contain drop-shadow-2xl"
@@ -94,14 +94,14 @@ export default function HeroGridSection() {
             <div
               className="absolute inset-0 bg-contain bg-no-repeat z-0 opacity-[0.4]"
               style={{
-                backgroundImage: "url('/customer/herogrid/man-bg.png')",
+                backgroundImage: "url('/customer/home/herogrid/man-bg.png')",
                 backgroundPosition: "right -30px bottom -42px",
               }}
             />
             {/* Image (Man with gift) */}
             <div className="absolute bottom-4 left-0 h-[100%] w-[40%] pointer-events-none">
               <Image
-                src="/customer/herogrid/man.png"
+                src="/customer/home/herogrid/man.png"
                 alt="Man with gift"
                 fill
                 className="object-contain scale-130"
@@ -146,7 +146,7 @@ export default function HeroGridSection() {
             {/* Image (Delivery Man) */}
             <div className="absolute bottom-3.5 right-0 h-[100%] w-[50%] pointer-events-none">
               <Image
-                src="/customer/herogrid/delivery.png"
+                src="/customer/home/herogrid/delivery.png"
                 alt="Delivery man"
                 fill
                 className="object-contain scale-180"

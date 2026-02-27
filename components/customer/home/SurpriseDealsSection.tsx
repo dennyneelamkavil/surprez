@@ -42,7 +42,7 @@ export default function SurpriseDealsSection() {
             {/* Center Image (Surprised Person) */}
             <div className="absolute top-1/2 right-[30%] -translate-y-1/2 h-[326px] w-[345px] pointer-events-none z-10">
               <Image
-                src="/customer/deals/surprise-deals.png"
+                src="/customer/home/deals/surprise-deals.png"
                 alt="Surprised person"
                 fill
                 className="object-contain grayscale scale-210"

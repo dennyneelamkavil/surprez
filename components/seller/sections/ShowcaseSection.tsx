@@ -14,42 +14,42 @@ const products: Product[] = [
   {
     id: "1",
     title: "Toys & Kids Products",
-    image: "/seller/categories/toys.jpg", // Yellow Toy Car
+    image: "/seller/landing/categories/toys.jpg", // Yellow Toy Car
   },
   {
     id: "2",
     title: "Handmade & Crafted",
-    image: "/seller/categories/handmade.jpg", // Gift Wrapping
+    image: "/seller/landing/categories/handmade.jpg", // Gift Wrapping
   },
   {
     id: "3",
     title: "Personalized Crafts",
-    image: "/seller/categories/personalized.png", // Flower Bouquet
+    image: "/seller/landing/categories/personalized.png", // Flower Bouquet
   },
   {
     id: "4",
     title: "Surprise Boxes",
-    image: "/seller/categories/kids.png", // Gift Box
+    image: "/seller/landing/categories/kids.png", // Gift Box
   },
   {
     id: "5",
     title: "Home & Desk Decor",
-    image: "/seller/categories/home-decor.png", // Interior Decor
+    image: "/seller/landing/categories/home-decor.png", // Interior Decor
   },
   {
     id: "6",
     title: "Party Gifts",
-    image: "/seller/categories/party.png", // Party/Tea Set
+    image: "/seller/landing/categories/party.png", // Party/Tea Set
   },
   {
     id: "7",
     title: "Photo Frames",
-    image: "/seller/categories/photo-frames.png", // Frame
+    image: "/seller/landing/categories/photo-frames.png", // Frame
   },
   {
     id: "8",
     title: "Perfumes",
-    image: "/seller/categories/perfumes.png", // Perfume
+    image: "/seller/landing/categories/perfumes.png", // Perfume
   },
 ];
 

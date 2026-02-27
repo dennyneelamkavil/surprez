@@ -7,27 +7,27 @@ const categories = [
   {
     id: 1,
     title: "Toys",
-    image: "/customer/categories/toys.png",
+    image: "/customer/home/categories/toys.png",
   },
   {
     id: 2,
     title: "Flowers",
-    image: "/customer/categories/flowers.png",
+    image: "/customer/home/categories/flowers.png",
   },
   {
     id: 3,
     title: "Frames",
-    image: "/customer/categories/frames.png",
+    image: "/customer/home/categories/frames.png",
   },
   {
     id: 4,
     title: "Hampers",
-    image: "/customer/categories/hampers.png",
+    image: "/customer/home/categories/hampers.png",
   },
   {
     id: 5,
     title: "Handmade Gifts",
-    image: "/customer/categories/handmade.png",
+    image: "/customer/home/categories/handmade.png",
   },
 ];
 
@@ -35,27 +35,27 @@ const occasions = [
   {
     id: 1,
     title: "Birthday",
-    image: "/customer/categories/birthday.jpg",
+    image: "/customer/home/categories/birthday.jpg",
   },
   {
     id: 2,
     title: "Anniversary",
-    image: "/customer/categories/anniversary.jpg",
+    image: "/customer/home/categories/anniversary.jpg",
   },
   {
     id: 3,
     title: "Wedding",
-    image: "/customer/categories/wedding.jpg",
+    image: "/customer/home/categories/wedding.jpg",
   },
   {
     id: 4,
     title: "Valentines Day",
-    image: "/customer/categories/valentines.jpg",
+    image: "/customer/home/categories/valentines.jpg",
   },
   {
     id: 5,
     title: "Thank You",
-    image: "/customer/categories/thanks.jpg",
+    image: "/customer/home/categories/thanks.jpg",
   },
 ];
 
