@@ -27,7 +27,6 @@ export default function HeroGridSection() {
                 <span
                   className={`${montserrat.className} text-[48px] font-extrabold`}
                 >
-                  {" "}
                   Made Simple
                 </span>
               </h1>
@@ -57,7 +56,8 @@ export default function HeroGridSection() {
             <div
               className="absolute inset-0 bg-cover bg-center z-0 opacity-[0.1]"
               style={{
-                backgroundImage: "url('/customer/home/herogrid/gift-stack-bg.jpg')",
+                backgroundImage:
+                  "url('/customer/home/herogrid/gift-stack-bg.jpg')",
               }}
             />
             <div className="relative z-10">

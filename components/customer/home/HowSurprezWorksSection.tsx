@@ -26,7 +26,7 @@ const steps = [
 export default function HowSurprezWorksSection() {
   return (
     <section className="w-full py-16 md:py-24 bg-white">
-      <div className="max-w-[1200px] mx-auto px-6 text-center">
+      <div className="max-w-7xl mx-auto px-6 text-center">
         {/* Header */}
         <h2 className="text-[24px] font-bold text-secondary mb-16">
           How Surprez Works
