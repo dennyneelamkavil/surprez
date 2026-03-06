@@ -2,34 +2,21 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { customerApi } from "@/lib/api";
 
-const categories = [
-  {
-    id: 1,
-    title: "Toys",
-    image: "/customer/home/categories/toys.png",
-  },
-  {
-    id: 2,
-    title: "Flowers",
-    image: "/customer/home/categories/flowers.png",
-  },
-  {
-    id: 3,
-    title: "Frames",
-    image: "/customer/home/categories/frames.png",
-  },
-  {
-    id: 4,
-    title: "Hampers",
-    image: "/customer/home/categories/hampers.png",
-  },
-  {
-    id: 5,
-    title: "Handmade Gifts",
-    image: "/customer/home/categories/handmade.png",
-  },
-];
+type Category = {
+  id: string;
+  name: string;
+  slug: string;
+  image: {
+    url: string;
+  };
+};
+
+type HomeResponse = {
+  categories: Category[];
+};
 
 const occasions = [
   {
@@ -60,6 +47,21 @@ const occasions = [
 ];
 
 export default function CategoriesSection() {
+  const [categories, setCategories] = useState<Category[]>([]);
+
+  useEffect(() => {
+    async function loadHome() {
+      try {
+        const res = await customerApi.get<HomeResponse>("/home");
+        setCategories(res.categories || []);
+      } catch (err) {
+        console.error("Failed to load categories", err);
+      }
+    }
+
+    loadHome();
+  }, []);
+
   return (
     <section className="relative w-full py-16 bg-[#E9F5E2] overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 space-y-16">
@@ -85,8 +87,8 @@ export default function CategoriesSection() {
                 {/* Full Image Card */}
                 <div className="w-full aspect-square rounded-[24px] overflow-hidden relative shadow-sm transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-md">
                   <Image
-                    src={category.image}
-                    alt={category.title}
+                    src={category.image.url}
+                    alt={category.name}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                   />
@@ -95,7 +97,7 @@ export default function CategoriesSection() {
                 </div>
                 {/* Label */}
                 <span className="text-[20px] font-medium text-black group-hover:text-secondary transition-colors">
-                  {category.title}
+                  {category.name}
                 </span>
               </Link>
             ))}
