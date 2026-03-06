@@ -22,24 +22,23 @@ export default function PromoSection() {
             <div className="flex-1 max-w-xl space-y-6">
               {/* Tag */}
               <div className="inline-flex items-center gap-1.5 bg-white/60 backdrop-blur-sm rounded-full px-4 py-1.5">
-                <Sparkles className="w-4 h-4 text-orange-500 fill-orange-500" />
-                <span className="text-[12px] font-bold text-[#59489C] tracking-widest uppercase">
-                  Holiday Special
+                <span className="text-[14px] font-semibold text-secondary tracking-widest uppercase">
+                  🎉 HOLIDAY SPECIAL
                 </span>
               </div>
 
               {/* Headlines */}
-              <div className="space-y-1">
-                <h1 className="text-5xl md:text-[64px] font-black text-black leading-none tracking-tight">
+              <div className="space-y-1 font-extrabold text-[48px]">
+                <h1 className="text-black leading-none tracking-tight">
                   Big Fun.
                 </h1>
-                <h1 className="text-5xl md:text-[64px] font-black text-[#59489C] leading-none tracking-tight">
+                <h1 className="text-secondary leading-none tracking-tight">
                   Big Savings.
                 </h1>
               </div>
 
               {/* Description */}
-              <p className="text-[#4A4A4A] text-[16px] md:text-[18px] font-medium leading-relaxed max-w-md">
+              <p className="text-[#6F6F6F] text-[16px] md:text-[20px] font-semibold leading-relaxed max-w-md">
                 Up To 40% Off On Toys This Week. Discover The Joy Of Gifting
                 Today With Free Shipping On All Orders.
               </p>
@@ -47,14 +46,14 @@ export default function PromoSection() {
               {/* Buttons */}
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Link href="/offers">
-                  <Button className="bg-[#59489C] hover:bg-[#483a82] text-white font-bold h-12 px-8 rounded-full shadow-lg transition-transform hover:scale-105">
+                  <Button className="bg-secondary hover:bg-[#483a82] text-white font-semibold text-[16px] h-12 px-8 rounded-full shadow-lg transition-transform hover:scale-105">
                     Explore Offers <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </Link>
                 <Link href="/gift-guides">
                   <Button
                     variant="outline"
-                    className="bg-white border-transparent text-black hover:bg-gray-50 font-bold h-12 px-8 rounded-full shadow-md transition-transform hover:scale-105"
+                    className="bg-white border-transparent text-black hover:bg-gray-50 font-semibold text-[16px] h-12 px-8 rounded-full shadow-md transition-transform hover:scale-105"
                   >
                     View Gift Guides
                   </Button>

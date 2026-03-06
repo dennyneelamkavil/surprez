@@ -62,19 +62,19 @@ export default function CategoriesSection() {
       <div className="max-w-7xl mx-auto px-6 space-y-16">
         {/* ================= SHOP BY AGE ================= */}
         <div>
-          <h2 className="text-[20px] font-bold text-black mb-6">Shop By Age</h2>
+          <h2 className="text-[24px] font-bold text-black mb-6">Shop By Age</h2>
 
           <div className="flex flex-wrap justify-center sm:justify-between items-center gap-4">
             {ages.map((age) => (
               <Link
                 href={`/age/${age.range}`}
                 key={age.id}
-                className="w-24 h-24 sm:w-[130px] sm:h-[130px] rounded-full bg-[#74BE4A] flex flex-col items-center justify-center shadow-sm hover:scale-105 transition-transform duration-300 group"
+                className="w-28 h-28 sm:w-[150px] sm:h-[150px] rounded-full bg-primary flex flex-col items-center justify-center shadow-sm hover:scale-105 transition-transform duration-300 group"
               >
-                <span className="text-3xl sm:text-[42px] font-black text-white leading-none group-hover:text-secondary transition-colors">
+                <span className="text-3xl sm:text-[42px] md:text-[50px] font-black text-white leading-none group-hover:text-secondary transition-colors">
                   {age.range}
                 </span>
-                <span className="text-[11px] sm:text-[13px] font-bold text-secondary mt-1 group-hover:text-white transition-colors">
+                <span className="text-[11px] sm:text-[13px] md:text-[24px] font-black text-secondary mt-1 group-hover:text-white transition-colors">
                   {age.label}
                 </span>
               </Link>
@@ -84,7 +84,7 @@ export default function CategoriesSection() {
 
         {/* ================= SHOP BY CATEGORIES ================= */}
         <div>
-          <h2 className="text-[20px] font-bold text-black mb-6">
+          <h2 className="text-[24px] font-bold text-black mb-6">
             Shop By Categories
           </h2>
 
@@ -116,7 +116,7 @@ export default function CategoriesSection() {
 
           {/* Explore More Button */}
           <div className="flex justify-center mt-16">
-            <Button className="bg-secondary hover:bg-[#4a3c82] text-white font-medium h-12 px-10 rounded-full shadow-sm">
+            <Button className="text-[20px] font-semibold bg-secondary hover:bg-[#4a3c82] text-white h-12 px-10 rounded-full shadow-sm">
               Explore More
             </Button>
           </div>

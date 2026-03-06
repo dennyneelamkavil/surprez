@@ -43,15 +43,15 @@ export default function FeaturesBanner() {
                 className="flex flex-col items-center text-center px-6"
               >
                 {/* Circular Icon */}
-                <div className="w-[60px] h-[60px] rounded-full bg-[#59489C] flex items-center justify-center mb-5 shadow-sm">
+                <div className="w-[60px] h-[60px] rounded-full bg-secondary flex items-center justify-center mb-5 shadow-sm">
                   <Icon className="w-7 h-7 text-white" strokeWidth={1.5} />
                 </div>
 
                 {/* Text Content */}
-                <h3 className="text-[16px] font-semibold text-[#59489C] mb-1.5">
+                <h3 className="text-[18px] font-semibold text-[#59489C7D] mb-1.5">
                   {feature.title}
                 </h3>
-                <p className="text-[13px] text-gray-400 font-medium tracking-wide">
+                <p className="text-[16px] text-[#B2B2B2] font-medium tracking-wide">
                   {feature.description}
                 </p>
               </div>
